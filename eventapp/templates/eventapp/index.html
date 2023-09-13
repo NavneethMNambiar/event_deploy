@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>MyEvent</title>
+</head>
+<body>
+    <header>
+        <img id="logo"src="{% static 'fisat.jpeg' %}" alt="FisatLogo"/>
+    <nav>
+        <a class="nav-link" href="">Home</a>
+        <a class="nav-link" href="">Login</a>
+        <a class="nav-link" href="">Registeration</a>
+    </nav>
+    </header>
+
+    <section id="events">
+        {% for event in events %}
+        <div class="event-card">
+            <h2>Title : {{event.event_title}}</h2>
+            <p>Location : {{event.location}}</p>
+            <p>Date : {{event.date}}</p>
+            <br>
+            <a href="{% url 'eventdetail' event.pk %}" class="details-btn">Details</a>
+        </div>
+        {% endfor %}
+        <!-- <div class="event-card">
+            <h2>Event Name</h2>
+            <p>Event Location</p>
+            <p>Event Date</p>
+            <br>
+            <a href="./details.html" class="details-btn">Details</a>
+        </div> -->
+    </section>
+
+    <footer>
+        <p style="color: rgb(202, 196, 196);">@2023 Event Registeration System</p>
+    </footer>
+</body>
+
+</html>

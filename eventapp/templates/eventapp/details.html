@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventDetails</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <header>
+        <img id="logo"src="{% static 'fisat.jpeg' %}" alt="FisatLogo"/>
+    <nav>
+        <a class="nav-link" href="">Home</a>
+        <a class="nav-link" href="">Login</a>
+        <a class="nav-link" href="">Registeration</a>
+    </nav>
+    </header>
+
+    <section id="event-details" class="sec">
+        <h2 class="event-title">Title : {{event.event_title}}</h2>
+        <p class="event-date">Date : {{event.date}}</p>
+        <p class="event-location">Location : {{event.location}}</p>
+        <p class="event-description">Description : {{event.description}}</p>
+        <br>
+        <form action="{% url 'eventdetail' event.pk %}" method="POST" class="formclass">
+            <h3>Register for the Event!</h3>
+            <!-- <label for="fullname">Full Name</label>
+            <br>
+            <input type="text" name="fullname" placeholder="Full Name">
+            <br><br>
+            <label for="email">Email</label>
+            <br>
+            <input type="text" name="email" placeholder="Mail Id">
+            <br><br>
+            <label for="phone">Phone number</label>
+            <br>
+            <input type="number" name="phone" placeholder="10 Digit phone number">
+            <br><br> -->
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Register" class="submitbtn">
+        </form>
+    </section>
+
+    <footer>
+        <p style="color: rgb(202, 196, 196);">@2023 Event Registeration System</p>
+    </footer>
+    
+</body>
+</html>
