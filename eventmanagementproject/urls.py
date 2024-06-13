@@ -24,4 +24,4 @@ urlpatterns = [
     path('',include('eventapp.urls'))
 ]
 
-urlpatterns+=staticfiles_urlpatterns
+# urlpatterns+=staticfiles_urlpatterns
